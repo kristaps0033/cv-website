@@ -287,6 +287,38 @@ main {
   display: block;
 }
 
+/* ======== SKILL DEFINITION BOX ======== */
+.skill-definition {
+  background: linear-gradient(135deg, rgba(100, 160, 220, 0.15) 0%, rgba(150, 190, 240, 0.15) 100%);
+  border-left: 4px solid rgba(100, 160, 220, 0.8);
+  padding: 20px;
+  border-radius: 6px;
+  margin-top: 20px;
+  font-size: 0.95rem;
+}
+
+.skill-definition h4 {
+  color: rgba(100, 160, 220, 0.95);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.05em;
+}
+
+.skill-definition .pronunciation {
+  color: rgba(100, 160, 220, 0.75);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin: 4px 0 12px 0;
+}
+
+.skill-definition .definition {
+  color: rgba(100, 160, 220, 0.85);
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .link-arrow {
   display: inline-flex;
   align-items: center;
@@ -538,6 +570,17 @@ main {
   .section-grid.reverse > :first-child,
   .section-grid.reverse > :last-child {
     order: initial;
+  }
+  
+  /* Ensure images appear below text on mobile (stacked layout) */
+  .section-grid > .section-image,
+  .section-grid.reverse > .section-image {
+    order: 2;
+  }
+  
+  .section-grid > .section-content,
+  .section-grid.reverse > .section-content {
+    order: 1;
   }
   
   .cta-buttons {
