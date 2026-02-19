@@ -2,7 +2,9 @@
 
 **Last Updated:** 2026-02-19
 
-**Phase:** MVP → Content Refinement
+**Phase:** MVP COMPLETE → CONTENT ACCURACY (CRITICAL FOR EMPLOYMENT)
+
+**Session Status:** Docker backend deployed & tested on home server. Form submissions live. **BLOCKER: CV content is placeholder — must fix before job applications.**
 
 **What's Working**
 - Homepage: hero section, feature cards, CTA buttons (Sazinies ar mani, Download CV).
@@ -15,17 +17,14 @@
 - 404 page: custom error fallback for Cloudflare Pages.
 - Deployment: Cloudflare Pages auto-synced from GitHub main branch.
 - Local preview: http://localhost:5500 (frontend), http://localhost:3000 (backend).
-- **Form backend (new):** Node.js/Express server at `../cv-website-backend/`.
-  - Saves submissions to SQLite DB (local `submissions.db`).
-  - Sends email notifications via Nodemailer.
+- **✅ Form backend LIVE:** Docker container on home server (persistent).
+  - Port mapping: 3001 (host) → 3000 (container).
+  - Saves submissions to SQLite DB (`submissions.db`).
+  - Email notifications to tavarskristaps@gmail.com working ✅.
   - Rate-limited (5 submissions per 15 min per IP).
-  - Ready to expose via CloudFlare Tunnel.
-
-**What's Not Working / Blocked**
-- Contact form submission: endpoint placeholder **`https://api.yourdomain.com/api/submit-form`** (needs tunnel configured).
-  - Blocker: requires Cloudflare Tunnel setup on local machine + .env configuration with email credentials.
-- Backend: not yet running (requires `npm install` in cv-website-backend + .env setup).
-- Content accuracy: Education, experience, and skills text may not match real CV yet.
+  - Cloudflare Tunnel routing: cv.kristapshomelab.com/api/* → localhost:3001 (verified working).
+CRITICAL BLOCKERS FOR JOB HUNT**
+- **CONTENT ACCURACY:** Education, experience, skills are placeholder/inaccurate.\n  - Cannot use current CV for job applications (would be lying to employer).\n  - Fix: Replace all placeholder text with REAL details.\n  - Scope: Edit index.html, about.html, education.html with accurate info.\n- Mobile polish: Secondary priority (nav/form spacing at 768px breakpoint)
 - Mobile visual polish: nav spacing, contact form layout at smaller widths not finalized.
 
 **Known Quirks / Edge Cases**
@@ -47,5 +46,5 @@
 
 **Dependency Map**
 - Depends on: GitHub (for Cloudflare Pages sync), Cloudflare (hosting).
-- Forms depend on: (decision pending) Formspree OR (CloudFlare Tunnel + local backend on homelab).
-- Job hunting use case ties to: homelab ecosystem potentially (can showcase projects via CV site).
+- Forms: Cloudflare Tunnel + Docker backend on home server + email (working ✅).
+- Job hunting use case: CV content must be accurate before applications.

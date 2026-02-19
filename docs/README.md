@@ -1,16 +1,15 @@
 # CV Website Project
 
-**Purpose:** Professional online presence & job hunting tool. Modern, responsive Squarespace-inspired static site showcasing IT/web development skills.
+**Purpose:** Professional online presence & job hunting tool. Modern, responsive static site with live form backend.
 
-**Current Status:** MVP ready for content refinement and device-specific polish.
+**Current Status (2026-02-19):** MVP design complete, form backend LIVE on server (Docker), CV content accuracy now PRIORITY 1.
 
 **Core TODOs (Urgency %, Progress +%)**
-- ✅ Define Squarespace design baseline (100%, +100%)
-- ✅ Build responsive HTML/CSS structure (100%, +100%)
+- ✅ Design + CSS (100%, +100%)
 - ✅ Deploy to Cloudflare Pages (100%, +100%)
-- **Setup form backend** (90%, +80%) — Node.js Express + SQLite local receiver, Cloudflare Tunnel + Formspree fallback.
-- **Content accuracy review** (90%, +30%) — fix text descriptions to match real experience.
-- **Mobile responsiveness polish** (80%, +25%) — visual consistency across 375px/768px/desktop.
+- ✅ Form backend live on server (100%, +100%) — Node.js/Express + SQLite, Cloudflare Tunnel active, email notifications working.
+- **🔴 PRIORITY 1: Content accuracy** (95%, +50%) — Replace placeholder education/experience/skills with REAL details. REQUIRED for job hunting.
+- **Mobile polish** (75%, +15%) — nav/form spacing finalization (secondary).
 
 **Non-essentials** (defer until core content/design locked)
 - Analytics integration (page views, referral tracking).
@@ -25,11 +24,9 @@
 - **Deployment:** CloudFlare Tunnel for backend (subdomain: e.g. api.yourdomain.com) + Formspree fallback.
 - Favicon: SVG (orange circle + white center, dark bg).
 
-**Deployment**
-- GitHub repos: https://github.com/kristaps0033/cv-website (frontend) + cv-website-backend (backend, local+tunnel).
-- Frontend: Cloudflare Pages (auto-synced from `main` branch above).
-- Backend: Local machine running `cv-website-backend/server.js` + exposed via CloudFlare Tunnel.
-- Live preview (local): http://localhost:5500 (frontend), http://localhost:3000 (backend, dev only).
+**Deployment (2026-02-19)**
+- **Frontend:** GitHub → Cloudflare Pages auto-sync. Live: https://cv.kristapshomelab.com
+- **Backend:** Home server Docker container (persistent).\n  - `cv-website-backend` port 3001 (host) → 3000 (container).\n  - Exposed via Cloudflare Tunnel: form submissions → email to tavarskristaps@gmail.com ✅.\n- **Dev:** localhost:5500 (frontend), localhost:3001 (backend).
 
 **Known Issues**
 - Form endpoint placeholder (`formspree.io/f/your-id`) — needs real backend.
