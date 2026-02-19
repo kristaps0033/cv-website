@@ -107,6 +107,14 @@
 
         clearTimeout(timeout);
 
+        if (response.status === 429) {
+          formStatus.textContent = '❌ Pārāk daudz mēģinājumu. Mēģini vēlāk.';
+          formStatus.style.color = 'red';
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+          return;
+        }
+
         if (response.ok) {
           formStatus.textContent = '✅ Paldies! Saņēmām jūsu ziņu.';
           formStatus.style.color = 'green';
